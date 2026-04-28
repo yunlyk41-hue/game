@@ -1,0 +1,90 @@
+{
+  "roundId": 3,
+  "name": "Crimson Ward",
+  "theme": "폐병원 / 저주받은 구역",
+  "mood": "강한 어둠, 붉은 조명, 생존 압박",
+  "world": {
+    "width": 4200,
+    "height": 720,
+    "flow": "left_to_right",
+    "visibility": "heavily_limited"
+  },
+  "layers": {
+    "background": [
+      "붉은 경고등이 비추는 병동 외벽",
+      "검게 그을린 천장",
+      "깊은 어둠 속 환자 그림자"
+    ],
+    "midground": [
+      "찢어진 커튼",
+      "수술실 유리",
+      "기울어진 침대와 장비"
+    ],
+    "foreground": [
+      "링거대",
+      "바닥 혈흔",
+      "산소통",
+      "약병 파편"
+    ],
+    "parallax": {
+      "background": 0.15,
+      "midground": 0.38,
+      "foreground": 0.85
+    }
+  },
+  "structure": [
+    "start",
+    "heavy_combat",
+    "trap_zone",
+    "narrow_platforms",
+    "high_risk_reward",
+    "enhanced_miniboss",
+    "rest"
+  ],
+  "platforms": [
+    { "id": "p0", "x": 0, "y": 600, "w": 480, "h": 120, "type": "floor" },
+    { "id": "p1", "x": 540, "y": 600, "w": 260, "h": 120, "type": "floor" },
+    { "id": "p2", "x": 860, "y": 600, "w": 180, "h": 120, "type": "floor" },
+    { "id": "p3", "x": 1100, "y": 600, "w": 180, "h": 120, "type": "floor" },
+    { "id": "p4", "x": 1380, "y": 600, "w": 160, "h": 120, "type": "floor" },
+    { "id": "p5", "x": 1660, "y": 600, "w": 140, "h": 120, "type": "floor" },
+    { "id": "p6", "x": 1960, "y": 600, "w": 180, "h": 120, "type": "floor" },
+    { "id": "p7", "x": 2240, "y": 600, "w": 180, "h": 120, "type": "floor" },
+    { "id": "p8", "x": 2520, "y": 600, "w": 200, "h": 120, "type": "floor" },
+    { "id": "p9", "x": 2820, "y": 600, "w": 260, "h": 120, "type": "floor" },
+    { "id": "p10", "x": 3160, "y": 600, "w": 420, "h": 120, "type": "boss_floor" },
+    { "id": "p11", "x": 3640, "y": 600, "w": 560, "h": 120, "type": "rest_floor" },
+
+    { "id": "n1", "x": 900, "y": 470, "w": 100, "h": 20, "type": "narrow_jump" },
+    { "id": "n2", "x": 1130, "y": 420, "w": 90, "h": 20, "type": "narrow_jump" },
+    { "id": "n3", "x": 1360, "y": 370, "w": 90, "h": 20, "type": "narrow_jump" },
+    { "id": "n4", "x": 1620, "y": 340, "w": 90, "h": 20, "type": "narrow_jump" },
+
+    { "id": "risk_reward_perch", "x": 2060, "y": 300, "w": 120, "h": 20, "type": "reward_jump" },
+    { "id": "rest_platform", "x": 3780, "y": 500, "w": 140, "h": 20, "type": "rest" }
+  ],
+  "hazards": [
+    { "id": "hz1", "type": "red_laser_floor", "x": 800, "y": 690, "w": 60, "h": 20 },
+    { "id": "hz2", "type": "gap", "x": 1040, "y": 600, "w": 60, "h": 120 },
+    { "id": "hz3", "type": "red_laser_floor", "x": 1280, "y": 690, "w": 100, "h": 20 },
+    { "id": "hz4", "type": "gap", "x": 1540, "y": 600, "w": 120, "h": 120 },
+    { "id": "hz5", "type": "electric_blood", "x": 2420, "y": 690, "w": 100, "h": 20 }
+  ],
+  "enemies": [
+    { "id": "e1", "type": "wisp", "x": 620, "y": 540, "role": "fast_melee" },
+    { "id": "e2", "type": "soldier", "x": 760, "y": 540, "role": "fast_melee" },
+    { "id": "e3", "type": "robot", "x": 980, "y": 410, "role": "ranged" },
+    { "id": "e4", "type": "wisp", "x": 1180, "y": 360, "role": "fast_ranged" },
+    { "id": "e5", "type": "soldier", "x": 1460, "y": 540, "role": "fast_melee" },
+    { "id": "e6", "type": "robot", "x": 1760, "y": 540, "role": "ranged" },
+    { "id": "e7", "type": "wisp", "x": 2140, "y": 540, "role": "fast_melee" },
+    { "id": "e8", "type": "robot", "x": 2680, "y": 540, "role": "ranged" }
+  ],
+  "rewards": [
+    { "id": "r1", "type": "risk_reward", "x": 2120, "y": 250, "name": "응급 심장 코어" },
+    { "id": "r2", "type": "trap_reward", "x": 2600, "y": 540, "name": "붉은 회복 앰플" }
+  ],
+  "bosses": [
+    { "id": "enhanced_miniboss", "type": "warder_core_overclocked", "x": 3340, "y": 508, "role": "enhanced_pattern_boss" }
+  ]
+}

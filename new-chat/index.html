@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nightmare Corridor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="hud">
+      <div class="hud__title">
+        <h1>Nightmare Corridor</h1>
+        <p class="hud__subtitle">공포 RPG 횡스크롤 프로토타입</p>
+      </div>
+
+      <div class="dialogue-panel dialogue-panel--top">
+        <p id="dialogueText">어둠이 깔린 복도는 아직 당신의 이름조차 모릅니다.</p>
+        <p id="storyText" class="dialogue-tip">캐릭터를 선택하고 악몽의 병동으로 들어가세요.</p>
+      </div>
+
+      <div class="hud__bars">
+        <div class="bar-card">
+          <div class="bar-card__label"><span>HP</span><span id="hpValue">100 / 100</span></div>
+          <div class="bar"><div id="hpBar" class="bar__fill bar__fill--hp"></div></div>
+        </div>
+        <div class="bar-card">
+          <div class="bar-card__label"><span>XP</span><span id="xpValue">0 / 40</span></div>
+          <div class="bar"><div id="xpBar" class="bar__fill bar__fill--xp"></div></div>
+        </div>
+      </div>
+
+      <div class="hud__meta">
+        <div>직업 <span id="classValue">미선택</span></div>
+        <div>레벨 <span id="levelValue">1</span></div>
+        <div>퀘스트 <span id="questValue">시작 전</span></div>
+      </div>
+    </section>
+
+    <section class="game-panel">
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="1280" height="720" aria-label="게임 화면"></canvas>
+
+        <div id="bossPanel" class="boss-panel boss-panel--hidden">
+          <div class="boss-panel__name" id="bossName">보스</div>
+          <div class="bar"><div id="bossBar" class="bar__fill bar__fill--boss"></div></div>
+        </div>
+
+        <div id="inventoryModal" class="inventory-modal inventory-modal--hidden">
+          <div class="inventory-modal__card">
+            <div class="inventory-card__header">
+              <h2>인벤토리</h2>
+              <button id="inventoryClose" type="button">닫기</button>
+            </div>
+            <div class="equipment-row">
+              <div>무기: <span id="weaponValue">없음</span></div>
+              <div>부적: <span id="charmValue">없음</span></div>
+            </div>
+            <div id="inventoryList" class="inventory-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <section class="card">
+          <h2>스탯</h2>
+          <div class="stat-grid">
+            <div>STR <span id="statStr">0</span></div>
+            <div>AGI <span id="statAgi">0</span></div>
+            <div>VIT <span id="statVit">0</span></div>
+            <div>SPI <span id="statSpi">0</span></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>스킬</h2>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <strong id="skill1Name">스킬 1</strong>
+              <span>키</span>
+              <span id="skill1Key">Q</span>
+              <span>상태</span>
+              <span id="skill1Cooldown">준비</span>
+            </div>
+            <div class="skill-item">
+              <strong id="skill2Name">스킬 2</strong>
+              <span>키</span>
+              <span id="skill2Key">F</span>
+              <span>상태</span>
+              <span id="skill2Cooldown">준비</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card inventory-card">
+          <div class="inventory-card__header">
+            <h2>인벤토리</h2>
+            <button id="inventoryToggle" type="button">열기</button>
+          </div>
+          <p class="inventory-card__hint">`I` 키 또는 버튼으로 게임 중앙에서 열립니다.</p>
+        </section>
+      </aside>
+    </section>
+
+    <section id="startScreen" class="start-screen">
+      <div class="start-screen__inner">
+        <div class="start-copy">
+          <p class="eyebrow">Character Select</p>
+          <h2>누가 악몽의 병동에 들어갈 것인가</h2>
+          <p>선택한 캐릭터에 따라 시작 스탯, 장비, 대사 톤이 달라집니다.</p>
+        </div>
+
+        <section class="start-guide">
+          <h3>조작 안내</h3>
+          <p>`A/D` 또는 방향키: 이동</p>
+          <p>`W` / `Space`: 점프</p>
+          <p>`E`: 상호작용</p>
+          <p>`J`: 기본 공격</p>
+          <p>`Q`, `F`: 스킬 사용</p>
+          <p>`I`: 인벤토리 열기</p>
+          <p>`1`, `2`: 장비 착용</p>
+          <p>`R`: 재시작</p>
+        </section>
+
+        <div class="character-grid">
+          <button class="character-card is-selected" data-class-id="exorcist" type="button">
+            <span class="character-card__portrait character-card__portrait--exorcist"></span>
+            <strong>퇴마사 윤</strong>
+            <span>균형형. 영력과 근접전이 모두 안정적</span>
+          </button>
+          <button class="character-card" data-class-id="runaway" type="button">
+            <span class="character-card__portrait character-card__portrait--runaway"></span>
+            <strong>도망자 민</strong>
+            <span>민첩형. 빠르고 연속 공격에 유리</span>
+          </button>
+          <button class="character-card" data-class-id="nurse" type="button">
+            <span class="character-card__portrait character-card__portrait--nurse"></span>
+            <strong>야간 간호사 서</strong>
+            <span>생존형. 체력과 회복, 정신력이 높음</span>
+          </button>
+        </div>
+
+        <div class="start-actions">
+          <p id="classDescription">퇴마사 윤: 오래된 부적검과 함께 병동의 균열을 봉인하러 왔습니다.</p>
+          <button id="startButton" class="primary-button" type="button" onclick="window.__startNightmare && window.__startNightmare()">악몽 시작</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="promotionScreen" class="promotion-screen promotion-screen--hidden">
+      <div class="promotion-screen__inner">
+        <div class="start-copy">
+          <p class="eyebrow">Advancement</p>
+          <h2>어떤 존재로 각성할 것인가</h2>
+          <p>레벨 3에 도달했습니다. 전직을 선택하면 스탯과 전투 성향이 크게 달라집니다.</p>
+        </div>
+        <div id="promotionGrid" class="character-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
