@@ -1,0 +1,221 @@
+{
+  "stageId": "abandoned_hospital_branch_01",
+  "theme": "폐병원, 수술실, 어두운 복도",
+  "world": {
+    "width": 5200,
+    "height": 720,
+    "tileSize": 40,
+    "flow": "left_to_right"
+  },
+  "layers": {
+    "backgroundFar": [
+      "먹구름 낀 밤하늘",
+      "멀리 보이는 병원 외벽 실루엣",
+      "희미한 달빛",
+      "천천히 흐르는 안개"
+    ],
+    "backgroundMid": [
+      "무너진 병동 창문",
+      "수술실 유리벽",
+      "끊어진 천장 조명",
+      "복도 중간의 격벽과 보안문"
+    ],
+    "foreground": [
+      "휠체어",
+      "산소통",
+      "깨진 링거대",
+      "낡은 기둥",
+      "바닥에 흩어진 차트와 약병"
+    ],
+    "parallaxHint": {
+      "backgroundFarSpeed": 0.2,
+      "backgroundMidSpeed": 0.45,
+      "foregroundSpeed": 0.8
+    }
+  },
+  "zoneFlow": [
+    {
+      "id": "start",
+      "xRange": [0, 420],
+      "description": "시작 지점. 비교적 안전한 병원 입구 복도",
+      "difficulty": "쉬움"
+    },
+    {
+      "id": "early_combat",
+      "xRange": [420, 980],
+      "description": "초반 전투 구간. 약한 적으로 튜토리얼 전투",
+      "difficulty": "쉬움"
+    },
+    {
+      "id": "branch",
+      "xRange": [980, 1680],
+      "description": "갈림길. 위쪽 메인 루트와 아래쪽 숨겨진 루트로 분기",
+      "difficulty": "보통"
+    },
+    {
+      "id": "hidden_reward",
+      "xRange": [1260, 1760],
+      "description": "숨겨진 보상 구간. 벽 뒤의 하층 보급실",
+      "difficulty": "보통"
+    },
+    {
+      "id": "hazard",
+      "xRange": [1760, 2480],
+      "description": "함정 구간. 전기 바닥, 붕괴 틈, 낙하 점프",
+      "difficulty": "어려움"
+    },
+    {
+      "id": "reward_after_hazard",
+      "xRange": [2480, 2760],
+      "description": "위험 구간을 넘은 뒤 보상 병실",
+      "difficulty": "완화"
+    },
+    {
+      "id": "mid_combat",
+      "xRange": [2760, 3400],
+      "description": "중반 전투 구간. 근접과 원거리 적 혼합",
+      "difficulty": "어려움"
+    },
+    {
+      "id": "miniboss",
+      "xRange": [3400, 3900],
+      "description": "미니보스 구간. 스캔 예고가 보이는 넓은 격리실",
+      "difficulty": "어려움"
+    },
+    {
+      "id": "rest",
+      "xRange": [3900, 4300],
+      "description": "회복 지점. 응급 처치실과 세이프 룸",
+      "difficulty": "쉬움"
+    },
+    {
+      "id": "final_boss",
+      "xRange": [4300, 5200],
+      "description": "최종보스 구간. 넓은 수술실, 장애물 최소화",
+      "difficulty": "최고"
+    }
+  ],
+  "platforms": [
+    { "id": "p0", "x": 0, "y": 600, "w": 620, "h": 120, "type": "floor", "zone": "start" },
+    { "id": "p1", "x": 660, "y": 600, "w": 380, "h": 120, "type": "floor", "zone": "early_combat" },
+    { "id": "p2", "x": 1080, "y": 600, "w": 280, "h": 120, "type": "floor", "zone": "branch" },
+    { "id": "p3", "x": 1420, "y": 600, "w": 300, "h": 120, "type": "floor", "zone": "branch" },
+    { "id": "p4", "x": 1820, "y": 600, "w": 220, "h": 120, "type": "floor", "zone": "hazard" },
+    { "id": "p5", "x": 2120, "y": 600, "w": 180, "h": 120, "type": "floor", "zone": "hazard" },
+    { "id": "p6", "x": 2360, "y": 600, "w": 180, "h": 120, "type": "floor", "zone": "hazard" },
+    { "id": "p7", "x": 2580, "y": 600, "w": 260, "h": 120, "type": "floor", "zone": "reward_after_hazard" },
+    { "id": "p8", "x": 2880, "y": 600, "w": 700, "h": 120, "type": "floor", "zone": "mid_combat" },
+    { "id": "p9", "x": 3640, "y": 600, "w": 520, "h": 120, "type": "floor", "zone": "miniboss" },
+    { "id": "p10", "x": 4200, "y": 600, "w": 1000, "h": 120, "type": "floor", "zone": "final_boss" },
+
+    { "id": "upper_branch_1", "x": 980, "y": 470, "w": 180, "h": 20, "type": "branch_upper", "zone": "branch" },
+    { "id": "upper_branch_2", "x": 1220, "y": 420, "w": 180, "h": 20, "type": "branch_upper", "zone": "branch" },
+    { "id": "upper_branch_3", "x": 1480, "y": 380, "w": 170, "h": 20, "type": "branch_upper", "zone": "branch" },
+
+    { "id": "hidden_drop_1", "x": 1180, "y": 670, "w": 180, "h": 20, "type": "hidden_lower", "zone": "hidden_reward" },
+    { "id": "hidden_drop_2", "x": 1420, "y": 670, "w": 180, "h": 20, "type": "hidden_lower", "zone": "hidden_reward" },
+    { "id": "hidden_drop_3", "x": 1640, "y": 640, "w": 160, "h": 20, "type": "hidden_lower", "zone": "hidden_reward" },
+
+    { "id": "hazard_jump_1", "x": 1880, "y": 500, "w": 120, "h": 20, "type": "jump", "zone": "hazard" },
+    { "id": "hazard_jump_2", "x": 2160, "y": 450, "w": 120, "h": 20, "type": "jump", "zone": "hazard" },
+    { "id": "hazard_jump_3", "x": 2400, "y": 400, "w": 120, "h": 20, "type": "jump", "zone": "hazard" },
+
+    { "id": "reward_perch", "x": 2660, "y": 340, "w": 120, "h": 20, "type": "reward_jump", "zone": "reward_after_hazard" },
+
+    { "id": "mid_upper_1", "x": 3020, "y": 500, "w": 160, "h": 20, "type": "combat_upper", "zone": "mid_combat" },
+    { "id": "mid_upper_2", "x": 3260, "y": 430, "w": 150, "h": 20, "type": "combat_upper", "zone": "mid_combat" },
+    { "id": "mid_upper_3", "x": 3460, "y": 500, "w": 140, "h": 20, "type": "combat_upper", "zone": "mid_combat" },
+
+    { "id": "rest_platform", "x": 3980, "y": 520, "w": 180, "h": 20, "type": "rest", "zone": "rest" }
+  ],
+  "hiddenPaths": [
+    {
+      "id": "hidden_path_01",
+      "entry": { "x": 1140, "y": 600, "type": "drop_through_cracked_floor" },
+      "route": [
+        { "x": 1180, "y": 670 },
+        { "x": 1420, "y": 670 },
+        { "x": 1640, "y": 640 }
+      ],
+      "exit": { "x": 1760, "y": 600, "type": "broken_wall_ladder" },
+      "reward": "희귀 의료 키트"
+    }
+  ],
+  "hazards": [
+    { "id": "hz1", "type": "electric_floor", "x": 1740, "y": 690, "w": 60, "h": 20, "severity": "low" },
+    { "id": "hz2", "type": "gap", "x": 2040, "y": 600, "w": 80, "h": 120, "severity": "medium" },
+    { "id": "hz3", "type": "electric_floor", "x": 2300, "y": 690, "w": 60, "h": 20, "severity": "medium" },
+    { "id": "hz4", "type": "gap", "x": 2540, "y": 600, "w": 40, "h": 120, "severity": "medium" }
+  ],
+  "enemies": [
+    { "id": "e1", "type": "wisp", "x": 520, "y": 540, "tier": "early", "role": "melee" },
+    { "id": "e2", "type": "soldier", "x": 820, "y": 540, "tier": "early", "role": "melee" },
+
+    { "id": "e3", "type": "robot", "x": 1280, "y": 540, "tier": "mid", "role": "ranged" },
+    { "id": "e4", "type": "wisp", "x": 1540, "y": 340, "tier": "mid", "role": "melee" },
+    { "id": "e5", "type": "soldier", "x": 1680, "y": 610, "tier": "mid", "role": "melee" },
+
+    { "id": "e6", "type": "robot", "x": 2960, "y": 540, "tier": "late", "role": "ranged" },
+    { "id": "e7", "type": "soldier", "x": 3140, "y": 440, "tier": "late", "role": "melee" },
+    { "id": "e8", "type": "wisp", "x": 3340, "y": 370, "tier": "late", "role": "ranged" },
+    { "id": "e9", "type": "robot", "x": 3520, "y": 540, "tier": "late", "role": "melee" },
+
+    { "id": "mini_boss", "type": "warder_core", "x": 3720, "y": 508, "tier": "miniboss", "role": "pattern_boss" },
+    { "id": "final_boss", "type": "hospital_heart", "x": 4720, "y": 448, "tier": "finalboss", "role": "phase_boss" }
+  ],
+  "rewards": [
+    {
+      "id": "r1",
+      "type": "hidden_item",
+      "x": 1500,
+      "y": 620,
+      "name": "희귀 의료 키트",
+      "reason": "숨겨진 길 보상"
+    },
+    {
+      "id": "r2",
+      "type": "jump_reward",
+      "x": 2700,
+      "y": 290,
+      "name": "강화 주사기 모듈",
+      "reason": "점프 요구 위치 보상"
+    },
+    {
+      "id": "r3",
+      "type": "hazard_reward",
+      "x": 2740,
+      "y": 540,
+      "name": "보안 열쇠 카드",
+      "reason": "위험 구간 돌파 보상"
+    },
+    {
+      "id": "r4",
+      "type": "rest_reward",
+      "x": 4040,
+      "y": 470,
+      "name": "응급 회복 캡슐",
+      "reason": "미니보스 이후 완충 구간"
+    }
+  ],
+  "checkpoints": [
+    { "id": "cp_start", "x": 120, "y": 540 },
+    { "id": "cp_mid", "x": 2620, "y": 540 },
+    { "id": "cp_rest", "x": 4000, "y": 540 }
+  ],
+  "bossArena": {
+    "minibossArena": {
+      "x": 3580,
+      "y": 0,
+      "w": 620,
+      "h": 720,
+      "notes": "넓은 바닥과 낮은 플랫폼 1개만 있어 패턴 학습에 집중"
+    },
+    "finalBossArena": {
+      "x": 4300,
+      "y": 0,
+      "w": 900,
+      "h": 720,
+      "notes": "수술실 대공간. 장애물 최소화, 광역 공격 회피용 넓은 이동 공간"
+    }
+  }
+}

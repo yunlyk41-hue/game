@@ -1,0 +1,76 @@
+{
+  "roundId": 1,
+  "name": "Dark Start",
+  "theme": "어두운 숲 / 폐허 입구",
+  "mood": "약한 안개, 낮은 조명, 멀리 움직이는 그림자",
+  "world": {
+    "width": 2200,
+    "height": 720,
+    "flow": "left_to_right",
+    "visibility": "slightly_limited"
+  },
+  "layers": {
+    "background": [
+      "먹구름 낀 밤하늘",
+      "기울어진 고목 실루엣",
+      "멀리 보이는 폐허 탑"
+    ],
+    "midground": [
+      "안개 낀 숲길",
+      "무너진 석상",
+      "흔들리는 나무 그림자"
+    ],
+    "foreground": [
+      "마른 풀",
+      "쓰러진 울타리",
+      "작은 비석",
+      "낙엽"
+    ],
+    "parallax": {
+      "background": 0.2,
+      "midground": 0.45,
+      "foreground": 0.8
+    }
+  },
+  "structure": [
+    "start",
+    "slow_enemy_zone",
+    "short_jump",
+    "small_branch",
+    "reward",
+    "exit"
+  ],
+  "platforms": [
+    { "id": "p0", "x": 0, "y": 600, "w": 480, "h": 120, "type": "floor" },
+    { "id": "p1", "x": 520, "y": 600, "w": 260, "h": 120, "type": "floor" },
+    { "id": "p2", "x": 860, "y": 600, "w": 240, "h": 120, "type": "floor" },
+    { "id": "p3", "x": 1160, "y": 600, "w": 320, "h": 120, "type": "floor" },
+    { "id": "p4", "x": 1540, "y": 600, "w": 320, "h": 120, "type": "floor" },
+    { "id": "p5", "x": 1920, "y": 600, "w": 280, "h": 120, "type": "exit_floor" },
+
+    { "id": "jump1", "x": 760, "y": 500, "w": 100, "h": 20, "type": "jump" },
+    { "id": "branch_upper", "x": 1240, "y": 500, "w": 140, "h": 20, "type": "branch_upper" },
+    { "id": "branch_hidden", "x": 1220, "y": 670, "w": 160, "h": 20, "type": "hidden_lower" },
+    { "id": "reward_perch", "x": 1640, "y": 470, "w": 120, "h": 20, "type": "reward_jump" }
+  ],
+  "hiddenPaths": [
+    {
+      "id": "hidden_path_r1",
+      "entry": { "x": 1180, "y": 600, "type": "cracked_ground_drop" },
+      "route": [
+        { "x": 1220, "y": 670 },
+        { "x": 1380, "y": 670 }
+      ],
+      "exit": { "x": 1460, "y": 600, "type": "broken_wall_climb" }
+    }
+  ],
+  "enemies": [
+    { "id": "e1", "type": "wisp", "x": 620, "y": 540, "role": "weak_melee" },
+    { "id": "e2", "type": "soldier", "x": 980, "y": 540, "role": "weak_melee" }
+  ],
+  "rewards": [
+    { "id": "r1", "type": "hidden_item", "x": 1300, "y": 620, "name": "낡은 부적 조각" },
+    { "id": "r2", "type": "jump_reward", "x": 1680, "y": 420, "name": "작은 회복약" }
+  ],
+  "bosses": []
+}
